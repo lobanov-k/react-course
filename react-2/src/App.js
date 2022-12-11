@@ -1,12 +1,13 @@
 import "./App.css";
 
 import { UserFrom } from "./components/UserFrom";
+import { Container } from "./components/Container";
 
 function App() {
   return (
-    <div className="App">
+    <Container theme="">
       <UserFrom />
-    </div>
+    </Container>
   );
 }
 
