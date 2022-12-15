@@ -3,6 +3,10 @@
   border: 1px solid aqua;
 }
 
+.User.bgWarning {
+  background-color: yellow;
+}
+
 .User__index {
   text-decoration: underline;
   font-style: bold;
@@ -10,4 +14,8 @@
 
 .User__name {
   font-style: italic;
+}
+
+.User__label {
+  font-weight: bold;
 }
