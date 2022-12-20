@@ -24,6 +24,16 @@ export class GridItems extends Component {
 }
 
 GridItems.propTypes = {
-  items: PropTypes.array.isRequired,
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      category: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
+      image: PropTypes.string.isRequired,
+      price: PropTypes.number.isRequired,
+      rating: PropTypes.object.isRequired,
+      title: PropTypes.string.isRequired,
+    })
+  ).isRequired,
   activeCategory: PropTypes.string,
 };
