@@ -16,7 +16,9 @@ export class GridItems extends Component {
         {this.props.activeCategory
           ? this.props.items
               .filter(({ category }) => category === this.props.activeCategory)
-              .map((item) => <Card {...item} key={item.id} />)
+              .map((item) => (
+                <Card {...item} key={item.id} adLabel={this.props.adLabel} />
+              ))
           : this.props.items.map((item) => <Card {...item} key={item.id} />)}
       </Grid>
     );

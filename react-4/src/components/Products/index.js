@@ -10,6 +10,7 @@ export class Products extends Component {
       products: [],
       categories: [],
       activeCategory: null,
+      adLabel: "some ad",
     };
   }
 
@@ -43,6 +44,7 @@ export class Products extends Component {
         <GridItems
           items={this.state.products}
           activeCategory={this.state.activeCategory}
+          adLabel={this.state.adLabel}
         />
       </div>
     );

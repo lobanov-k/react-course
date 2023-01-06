@@ -44,4 +44,5 @@ Card.propTypes = {
   price: PropTypes.number.isRequired,
   rating: PropTypes.object.isRequired,
   title: PropTypes.string.isRequired,
+  adLabel: PropTypes.string,
 };
