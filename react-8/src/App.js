@@ -15,7 +15,6 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Container maxWidth="lg">
-        {/* <Counter /> */}
         <Users />
       </Container>
     </ThemeProvider>
