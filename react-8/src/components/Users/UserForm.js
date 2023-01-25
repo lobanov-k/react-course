@@ -3,7 +3,11 @@ import PropTypes from "prop-types";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
 import Box from "@mui/material/Box";
+import { useSelector } from "react-redux";
+import * as colors from "@mui/material/colors";
 
 import { inputStyles } from "./styles";
 
@@ -19,6 +23,9 @@ export function UserForm({
   const [name, setName] = useState(user.name);
   const [age, setAge] = useState(user.age);
   const [isAdmin, setIsAdmin] = useState(user.isAdmin);
+  const [usersLabel, setUsersLabel] = useState(null);
+
+  const labels = useSelector((state) => state.labels.list);
 
   const onNameChangeHandler = (e) => {
     setName(e.target.value);
@@ -39,6 +46,7 @@ export function UserForm({
       name,
       age,
       isAdmin,
+      label: usersLabel,
     });
   };
 
@@ -73,6 +81,16 @@ export function UserForm({
         label={`Is "${name || "user"}" admin?`}
         sx={inputStyles}
       />
+      <Select onChange={(e) => setUsersLabel(e.target.value)}>
+        {labels.map((label) => (
+          <MenuItem
+            value={label.id}
+            sx={{ backgroundColor: colors[label.color][500] }}
+          >
+            {label.text}
+          </MenuItem>
+        ))}
+      </Select>
       <ButtonComponent />
     </Box>
   );

@@ -69,8 +69,6 @@ export const usersSlice = createSlice({
       state.loading = false;
       state.list = payload.map((item) => ({
         ...item,
-        isAdmin: false,
-        age: 18,
       }));
     },
     [addUser.fulfilled]: (state, { payload }) => {

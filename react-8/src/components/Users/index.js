@@ -8,7 +8,9 @@ import ListItemText from "@mui/material/ListItemText";
 import IconButton from "@mui/material/IconButton";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import EditIcon from "@mui/icons-material/Edit";
-import ListItemButton from "@mui/material/ListItemButton";
+import Badge from "@mui/icons-material/Badge";
+import { NavLink } from "react-router-dom";
+import * as colors from "@mui/material/colors";
 
 import { UserAddForm } from "./UserAddForm";
 import { Loader } from "./styled/Loader";
@@ -27,6 +29,7 @@ export function Users() {
   const userList = useSelector((state) => state.users.list);
   const isDataLoading = useSelector((state) => state.users.loading);
   const [editFormData, setEditFormData] = useState(null);
+  const labels = useSelector((state) => state.labels.list);
 
   const onUserAddHandler = (user) => {
     dispatch(addUser(user));
@@ -64,34 +67,46 @@ export function Users() {
           {isDataLoading && <Loader />}
           {!isDataLoading && (
             <List>
-              {userList?.map((user, index) => (
-                <ListItem key={user.id}>
-                  <ListItemButton
+              {userList?.map((user, index) => {
+                const label = labels.find(({ id }) => id == user.label);
+                return (
+                  <NavLink key={user.id} to={`/users/${user.id}`}>
+                    <ListItem>
+                      {/* <ListItemButton
                     selected={user.isAdmin}
                     onClick={() =>
                       onUserStatusChangeHandler(user.id, !user.isAdmin)
                     }
-                  >
-                    <ListItemText
-                      primary={`#${index}. ${user.name}, ${user.age} y.o.`}
-                    />
-                    <IconButton
-                      aria-label="edit"
-                      size="large"
-                      onClick={() => setEditFormData(user)}
-                    >
-                      <EditIcon />
-                    </IconButton>
-                    <IconButton
-                      aria-label="delete"
-                      size="large"
-                      onClick={onUserDeleteHandler(user.id)}
-                    >
-                      <DeleteOutlineIcon />
-                    </IconButton>
-                  </ListItemButton>
-                </ListItem>
-              ))}
+                  > */}
+                      <ListItemText
+                        primary={`#${index}. ${user.name}, ${user.age} y.o.`}
+                      />
+                      <IconButton
+                        aria-label="edit"
+                        size="large"
+                        onClick={() => setEditFormData(user)}
+                      >
+                        <EditIcon />
+                      </IconButton>
+                      <IconButton
+                        aria-label="delete"
+                        size="large"
+                        onClick={onUserDeleteHandler(user.id)}
+                      >
+                        <DeleteOutlineIcon />
+                      </IconButton>
+                      {/* </ListItemButton> */}
+                      {label && (
+                        <Badge
+                          sx={{ backgroundColor: colors[label.color][500] }}
+                        >
+                          {label.text}
+                        </Badge>
+                      )}
+                    </ListItem>
+                  </NavLink>
+                );
+              })}
             </List>
           )}
         </Box>

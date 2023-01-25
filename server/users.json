@@ -1,1 +1,1 @@
-[{"id":1,"name":"Konstantin Lobanov","age":"45"},{"id":"f621b9c0-4b39-45c3-ade6-dd11f642b3a8","name":"ivan","age":"70","isAdmin":false},{"id":"1d39ab2d-d800-4f99-94e8-7278756ee15f","name":"Sasha","age":"28","isAdmin":true}]
+[{"id":1,"name":"Konstantin Lobanov","age":"45"},{"id":"f621b9c0-4b39-45c3-ade6-dd11f642b3a8","name":"ivan","age":"70","isAdmin":false},{"id":"1d39ab2d-d800-4f99-94e8-7278756ee15f","name":"Sasha","age":"28","isAdmin":true},{"id":"a0952e0e-a042-4b2e-be31-db0d8db8f001","name":"aaaa","age":0,"isAdmin":true,"label":"2"}]
